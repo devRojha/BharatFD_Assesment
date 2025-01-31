@@ -1,20 +1,20 @@
 const mongoose = require("mongoose");
-const AdminSchema = require("./Schemas/AdminSchema")
-const FAQSchema = require("./Schemas/FAQSchema")
+const adminSchema = require("./Schemas/AdminSchema");
+const faqSchema = require("./Schemas/FAQSchema");
 
+require("dotenv").config();
 
-require('dotenv').config();
+const dbUrl = process.env.DB_URL;
 
-const DB_URL = process.env.DB_URL;
+mongoose.connect(dbUrl)
+  .then(() => {
+    console.log("Connected to MongoDB");
+  })
+  .catch((err) => {
+    console.error("Connection error:", err);
+  });
 
-mongoose.connect(DB_URL)
-.then(()=>{
-    console.log('Connected to MongoDB');
-}).catch(()=>{
-    console.error('Connection error', err);
-})
+const Admin = mongoose.model("Admin", adminSchema);
+const FAQ = mongoose.model("FAQ", faqSchema);
 
-const Admin = mongoose.model('Admin', AdminSchema);
-const FAQ = mongoose.model('FAQ', FAQSchema);
-
-module.exports = {Admin, FAQ};
+module.exports = { Admin, FAQ };
