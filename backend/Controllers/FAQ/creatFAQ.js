@@ -1,4 +1,4 @@
-const { FAQ } = require("../db");
+const { FAQ } = require("../../db");
 const translateText = require("../Language/lagnTranslate");
 
 const createFAQ = async (req, res) => {

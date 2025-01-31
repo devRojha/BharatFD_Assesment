@@ -1,7 +1,7 @@
 const { z } = require("zod");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-const { Admin } = require("../db");
+const { Admin } = require("../../db");
 
 require("dotenv").config();
 
