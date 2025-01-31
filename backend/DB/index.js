@@ -5,7 +5,7 @@ const FAQSchema = require("./Schemas/FAQSchema")
 
 require('dotenv').config();
 
-const DB_URL = process.env.DBURL;
+const DB_URL = process.env.DB_URL;
 
 mongoose.connect(DB_URL)
 .then(()=>{
