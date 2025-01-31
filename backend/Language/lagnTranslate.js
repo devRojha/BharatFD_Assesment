@@ -2,8 +2,6 @@ const translate = require("google-translate-api-x");
 
 const translateText = async (text, lang) => {
   if (lang === "en") return text;
-
-  console.log(`Translating to: ${lang}`);
   
   try {
     const { text: translatedText } = await translate(text, { to: lang });
