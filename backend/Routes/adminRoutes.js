@@ -1,7 +1,7 @@
 const express = require("express");
 
-const adminSignup = require("../Controllers/adminSignup");
-const adminSignin = require("../Controllers/adminSignin");
+const adminSignup = require("../Controllers/Admin/adminSignup");
+const adminSignin = require("../Controllers/Admin/adminSignin");
 
 const router = express();
 
