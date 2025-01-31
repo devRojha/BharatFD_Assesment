@@ -1,20 +1,19 @@
-
 const mongoose = require('mongoose');
 
-const FAQSchema = new mongoose.Schema({
-    Question : {
-        type : String,
-        required : true
+const faqSchema = new mongoose.Schema({
+    question: {
+        type: String,
+        required: true
     },
-    Answer : {
-        type : String,
-        required : true,
-        unique: true,
+    answer: {
+        type: String,
+        required: true,
+        unique: true
     },
-    authorId : {
-        type : String,
-        required : true,
+    authorID: {
+        type: String,
+        required: true
     }
-})
+});
 
-module.exports = FAQSchema;
+module.exports = faqSchema;
