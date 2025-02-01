@@ -1,9 +1,11 @@
-const { expect } = require("chai");
-const sinon = require("sinon");
-const translate = require("google-translate-api-x");
-const translateText = require("../Controllers/Language/langTranslate");
+import chai from 'chai'; 
+import sinon from 'sinon'; 
+import translate from 'google-translate-api-x'; 
+import translateText from '../Controllers/Language/langTranslate.js'; 
 
-describe("translateText", function () {
+const { expect } = chai; // Destructure expect from chai
+
+describe('translateText', function () {
   afterEach(() => {
     sinon.restore(); // Restore any stubbed/mocked functions after each test
   });
@@ -12,7 +14,7 @@ describe("translateText", function () {
     const text = "Hello, world!";
     const lang = "en";
     const result = await translateText(text, lang);
-    expect(result).to.equal(text); // Should return the original text
+    expect(result).to.equal(text); // Use expect for assertions
   });
 
   it("should return translated text when language is not 'en'", async function () {
@@ -21,10 +23,22 @@ describe("translateText", function () {
     
     // Mocking the translate function
     const mockTranslatedText = "हैलो वर्ल्ड";
-    sinon.stub(translate, "default").resolves({ text: mockTranslatedText });
+    sinon.stub(translate, "translate").resolves({ text: mockTranslatedText });
 
     const result = await translateText(text, lang);
-    expect(result).to.equal(mockTranslatedText); // Should return translated text
+    expect(result).to.equal(mockTranslatedText); // Use expect for assertions
+  });
+
+  it("should return translated text when language is not 'en'", async function () {
+    const text = "How are you";
+    const lang = "sa";
+    
+    // Mocking the translate function
+    const mockTranslatedText = "भवान्‌ कथमसि";
+    sinon.stub(translate, "translate").resolves({ text: mockTranslatedText });
+
+    const result = await translateText(text, lang);
+    expect(result).to.equal(mockTranslatedText); // Use expect for assertions
   });
 
   it("should return original text if translation fails", async function () {
@@ -32,9 +46,9 @@ describe("translateText", function () {
     const lang = "abc";
 
     // Simulating a translation error
-    sinon.stub(translate, "default").rejects(new Error("Translation error"));
+    sinon.stub(translate, "translate").rejects(new Error("Translation error"));
 
     const result = await translateText(text, lang);
-    expect(result).to.equal(text); // Should return the original text in case of an error
+    expect(result).to.equal(text); // Use expect for assertions
   });
 });

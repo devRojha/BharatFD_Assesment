@@ -1,6 +1,6 @@
-const express = require("express");
-const cors = require("cors");
-const mainRouter = require("./Routes/index.js")
+import express from "express";
+import cors from "cors";
+import mainRouter from "./Routes/index.js"
 const app = express();
 
 app.use(cors());

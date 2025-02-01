@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha --require esm",
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
@@ -23,9 +23,14 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "chai": "^5.1.2",
+    "@eslint/js": "^9.19.0",
+    "chai": "^4.3.4",
+    "eslint": "^9.19.0",
+    "esm": "^3.2.25",
+    "globals": "^15.14.0",
     "mocha": "^11.1.0",
     "nodemon": "^3.1.9",
     "sinon": "^19.0.2"
-  }
+  },
+  "type": "module"
 }

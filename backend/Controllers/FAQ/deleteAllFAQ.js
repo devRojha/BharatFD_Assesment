@@ -1,7 +1,6 @@
-const { FAQ } = require("../../DB");
+import { FAQ } from "../../DB/index.js";
 
 const deleteAllFAQ = async (req, res) => {
-    const { id } = req.body;
   try {
     await FAQ.deleteMany({});
 
@@ -12,4 +11,4 @@ const deleteAllFAQ = async (req, res) => {
   }
 };
 
-module.exports = deleteAllFAQ;
+export default deleteAllFAQ;

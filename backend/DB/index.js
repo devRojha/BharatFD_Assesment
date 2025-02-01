@@ -1,9 +1,9 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
+import AdminSchema from "./Schemas/AdminSchema.js";
+import FAQSchema from "./Schemas/FAQSchema.js";
+import dotenv from "dotenv";
 
-const AdminSchema = require("./Schemas/AdminSchema");
-const FAQSchema = require("./Schemas/FAQSchema");
-
-require("dotenv").config();
+dotenv.config(); // Load environment variables from .env file
 
 const dbUrl = process.env.DB_URL;
 
@@ -18,4 +18,4 @@ mongoose.connect(dbUrl)
 const Admin = mongoose.model("Admin", AdminSchema);
 const FAQ = mongoose.model("FAQ", FAQSchema);
 
-module.exports = { Admin, FAQ };
+export { Admin, FAQ }; // Export Admin and FAQ models

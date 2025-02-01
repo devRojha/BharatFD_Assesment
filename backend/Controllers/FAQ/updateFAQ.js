@@ -1,32 +1,35 @@
+import { FAQ } from "../../DB/index.js";
+import translateText from "../Language/langTranslate.js";
 
-const { FAQ } = require("../../DB");
-const translateText = require("../Language/langTranslate");
 
 const updateFAQ = async (req, res) => {
   const { id, question, answer } = req.body;
-  let englishQuestion
-  let englishAnswer
-  if(question){
-      englishQuestion = await translateText(question, "en");
+  let englishQuestion;
+  let englishAnswer;
+
+  if (question) {
+    englishQuestion = await translateText(question, "en");
   }
-  if(answer){
-      englishAnswer = await translateText(answer, "en");
+  if (answer) {
+    englishAnswer = await translateText(answer, "en");
   }
 
   try {
-    const faqAllReadeExist = await FAQ.findById(id);
-    if(!faqAllReadeExist){
-        return res.status(400).json({msg : "FAQ Not Exist"});
+    const faqExist = await FAQ.findById(id);
+    if (!faqExist) {
+      return res.status(400).json({ msg: "FAQ does not exist" });
     }
-    if(question){
-        faqAllReadeExist.question =  englishQuestion ;
+
+    if (question) {
+      faqExist.question = englishQuestion;
     }
-    if(answer){
-        faqAllReadeExist.answer =  englishAnswer ;
+    if (answer) {
+      faqExist.answer = englishAnswer;
     }
-    await FAQ.updateOne({_id : id},{
-      question: faqAllReadeExist.question,
-      answer: faqAllReadeExist.answer,
+
+    await FAQ.updateOne({ _id: id }, {
+      question: faqExist.question,
+      answer: faqExist.answer,
       authorID: req.authorID,
     });
 
@@ -37,4 +40,4 @@ const updateFAQ = async (req, res) => {
   }
 };
 
-module.exports = updateFAQ;
+export default updateFAQ;

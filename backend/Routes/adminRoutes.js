@@ -1,13 +1,10 @@
-const express = require("express");
+import express from "express";
+import adminSignup from "../Controllers/Admin/adminSignup.js";
+import adminSignin from "../Controllers/Admin/adminSignin.js";
 
-const adminSignup = require("../Controllers/Admin/adminSignup");
-const adminSignin = require("../Controllers/Admin/adminSignin");
+const router = express.Router(); // Use express.Router() for routing
 
-const router = express();
+router.post("/signin", adminSignin);
+router.post("/signup", adminSignup);
 
-
-router.post("/signin", adminSignin)
-
-router.post("/signup", adminSignup)
-
-module.exports = router;
+export default router;

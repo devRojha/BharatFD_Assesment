@@ -1,4 +1,4 @@
-const { FAQ } = require("../../DB");
+import { FAQ } from "../../DB/index.js";
 
 const deleteFAQ = async (req, res) => {
     const { id } = req.body;
@@ -11,5 +11,4 @@ const deleteFAQ = async (req, res) => {
     return res.status(500).json({ msg: "Internal server error" });
   }
 };
-
-module.exports = deleteFAQ;
+export default deleteFAQ;
