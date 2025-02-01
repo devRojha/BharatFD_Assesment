@@ -1,6 +1,6 @@
 
 
-const Language = {
+const Language_code_For_Ref = {
     "Abkhaz": "ab",
     "Acehnese": "ace",
     "Acholi": "ach",
