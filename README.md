@@ -9,6 +9,7 @@ This project provides a backend system for managing Frequently Asked Questions (
 - **Redis Caching**: Stores FAQs for **1 hour** per unique language query to enhance performance.
 - **Multilingual Support**: If a requested language is not available, it defaults to **English**.
 - **Dockerized Deployment**: Easily deployable with Docker and Nginx on AWS EC2.
+- **Deployment Link**: https://faq.alpha-dev.tech
 
 ---
 
@@ -68,7 +69,7 @@ This project provides a backend system for managing Frequently Asked Questions (
 
 ### Clone the Repository:
 ```
- git clone ""
+ git clone "https://github.com/devRojha/BharatFD_Assesment.git"
 ```
 
 M1 - Docker People
