@@ -1,5 +1,6 @@
-const { FAQ } = require("../../db");
-const translateText = require("../Language/lagnTranslate");
+
+const { FAQ } = require("../../DB");
+const translateText = require("../Language/langTranslate");
 
 const createFAQ = async (req, res) => {
   const { question, answer } = req.body;
@@ -7,8 +8,8 @@ const createFAQ = async (req, res) => {
   const englishAnswer = await translateText(answer, "en");
 
   try {
-    const faqAllReadeExist = await FAQ.find({question});
-    if(faqAllReadeExist){
+    const faqAllReadeExist = await FAQ.find({question : englishQuestion});
+    if(faqAllReadeExist.length > 0){
         return res.status(404).json({msg : "FAQ allready Exist"});
     }
     await FAQ.create({

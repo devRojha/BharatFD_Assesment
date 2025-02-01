@@ -1,5 +1,6 @@
-const { FAQ } = require("../../db");
-const translateText = require("../Language/lagnTranslate");
+
+const { FAQ } = require("../../DB");
+const translateText = require("../Language/langTranslate");
 
 const updateFAQ = async (req, res) => {
   const { id, question, answer } = req.body;

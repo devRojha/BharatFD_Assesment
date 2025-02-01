@@ -1,5 +1,5 @@
-const { FAQ } = require("../../db");
-const translateText = require("../Language/lagnTranslate");
+const { FAQ } = require("../../DB");
+const translateText = require("../Language/langTranslate");
 const redis = require("../Redis/connect");
 
 const getAllFAQ = async (req, res) => {

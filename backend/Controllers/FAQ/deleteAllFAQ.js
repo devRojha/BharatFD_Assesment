@@ -1,4 +1,4 @@
-const { FAQ } = require("../../db");
+const { FAQ } = require("../../DB");
 
 const deleteAllFAQ = async (req, res) => {
     const { id } = req.body;
