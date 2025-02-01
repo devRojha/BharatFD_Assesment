@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
-const adminSchema = require("./Schemas/AdminSchema");
-const faqSchema = require("./Schemas/FAQSchema");
+
+const AdminSchema = require("./Schemas/AdminSchema");
+const FAQSchema = require("./Schemas/FAQSchema");
 
 require("dotenv").config();
 
@@ -14,7 +15,7 @@ mongoose.connect(dbUrl)
     console.error("Connection error:", err);
   });
 
-const Admin = mongoose.model("Admin", adminSchema);
-const FAQ = mongoose.model("FAQ", faqSchema);
+const Admin = mongoose.model("Admin", AdminSchema);
+const FAQ = mongoose.model("FAQ", FAQSchema);
 
 module.exports = { Admin, FAQ };

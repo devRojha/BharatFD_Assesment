@@ -6,7 +6,7 @@ const authMiddleware = require("../Middlewares/authMiddleware");
 const router = express();
 
 
-router.delete("/delete/allcaches",authMiddleware, deleteAll)
+router.delete("/clear",authMiddleware, deleteAll)
 
 
 module.exports = router;

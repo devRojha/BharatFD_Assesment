@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const faqSchema = new mongoose.Schema({
+const FAQSchema = new mongoose.Schema({
     question: {
         type: String,
         required: true
@@ -8,7 +8,6 @@ const faqSchema = new mongoose.Schema({
     answer: {
         type: String,
         required: true,
-        unique: true
     },
     authorID: {
         type: String,
@@ -16,4 +15,4 @@ const faqSchema = new mongoose.Schema({
     }
 });
 
-module.exports = faqSchema;
+module.exports = FAQSchema;
