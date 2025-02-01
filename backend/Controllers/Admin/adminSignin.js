@@ -1,10 +1,10 @@
-const { z } = require("zod");
-const jwt = require("jsonwebtoken");
-const bcrypt = require("bcryptjs");
-const { Admin } = require("../../DB");
+import { z } from "zod";
+import jwt from "jsonwebtoken";
+import bcrypt from "bcryptjs";
+import { Admin } from "../../DB/index.js";
+import dotenv from "dotenv";
 
-
-require("dotenv").config();
+dotenv.config();
 
 const secretKey = process.env.SECRET_KEY;
 
@@ -43,4 +43,4 @@ const adminSignin = async (req, res) => {
   }
 };
 
-module.exports = adminSignin;
+export default adminSignin;

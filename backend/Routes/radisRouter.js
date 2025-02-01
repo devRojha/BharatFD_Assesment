@@ -1,12 +1,9 @@
-const express = require("express");
-const deleteAll = require("../Controllers/Redis/deleteAll");
-const authMiddleware = require("../Middlewares/authMiddleware");
+import express from "express";
+import deleteAll from "../Controllers/Redis/deleteAll.js";
+import authMiddleware from "../Middlewares/authMiddleware.js";
 
+const router = express.Router();
 
-const router = express();
+router.delete("/clear", authMiddleware, deleteAll);
 
-
-router.delete("/clear",authMiddleware, deleteAll)
-
-
-module.exports = router;
+export default router;

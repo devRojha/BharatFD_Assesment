@@ -197,5 +197,5 @@ const Language = {
     "Zulu": "zu"
 }
 
-module.exports = Language
+export default Language
   

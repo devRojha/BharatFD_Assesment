@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
 const AdminSchema = new mongoose.Schema({
     name: {
@@ -13,11 +13,7 @@ const AdminSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    },
-    fq: {
-        type: [String],
-        default: []
     }
 });
 
-module.exports = AdminSchema;
+export default AdminSchema;

@@ -1,17 +1,18 @@
-const jwt = require("jsonwebtoken");
-const { Admin } = require("../DB");
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
+import { Admin } from "../DB/index.js";
 
-
-require('dotenv').config();
+dotenv.config();
 
 const secretKey = process.env.SECRET_KEY;
 
-const authMiddleware = async (req, res, next)=>{
+const authMiddleware = async (req, res, next) => {
     const token = req.headers.token;
     
     if (!token) {
         return res.status(401).json({ msg: "No token provided" });
     }
+
     let decoded;
     try {
         decoded = jwt.verify(token, secretKey);
@@ -39,6 +40,6 @@ const authMiddleware = async (req, res, next)=>{
         console.error("Error while getting user details: ", e);
         return res.status(500).json({ msg: "Error while getting user details" });
     }
-}
+};
 
-module.exports = authMiddleware
+export default authMiddleware;

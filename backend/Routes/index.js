@@ -1,9 +1,9 @@
-const express = require("express");
-const router = express();
-const adminRoutes = require("./adminRoutes.js");
-const faqRoutes = require("./faqRoutes.js");
-const radisRouter = require("./radisRouter.js");
+import express from "express";
+import adminRoutes from "./adminRoutes.js";
+import faqRoutes from "./faqRoutes.js";
+import radisRouter from "./radisRouter.js";
 
+const router = express.Router();
 
 router.use("/admin", adminRoutes)
 
@@ -12,4 +12,4 @@ router.use("/faq", faqRoutes)
 router.use("/radis", radisRouter)
 
 
-module.exports = router;
+export default router;

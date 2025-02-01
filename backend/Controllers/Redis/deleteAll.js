@@ -1,18 +1,18 @@
 
-const redis = require("./connect");
+
+import redis from "./connect.js";
 
 
 
 
-const deleteAll = async(req , res)=>{
-    try{
-        await redis.flushall();
-        res.status(200).json({ msg : "Caches are deleted"})
+const deleteAll = async (req, res) => {
+    try {
+        await redis.flushall();  // Using the Redis instance to call flushall
+        res.status(200).json({ msg: "Caches are deleted" });
+    } catch (e) {
+        console.log(`Caches deleting failed with Error: ${e}`);
+        res.status(500).json({ msg: "Internal Server Down" });
     }
-    catch(e){
-        console.log(`Caches deleting faild with Error : ${e}`);
-        res.status(500).json({ msg : "Internal Server Down" });
-    }
-}
+};
 
-module.exports = deleteAll
+export default deleteAll;
