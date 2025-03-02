@@ -7,7 +7,7 @@ This project provides a backend system for managing Frequently Asked Questions (
 - **Admin Module**: Secure authentication and authorization for admins.
 - **FAQ Module**: CRUD operations for FAQs with language-based translation.
 - **Redis Caching**: Stores FAQs for **1 hour** per unique language query to enhance performance.
-- **Multilingual Support**: If a requested language is not available, it defaults to **English**.
+- **Multilingual Support**: If a requested language is not available, by defaults language is set to **English**.
 - **Dockerized Deployment**: Easily deployable with Docker and Nginx on AWS EC2.
 - **Deployment Link**: https://faq.alpha-dev.tech
 
