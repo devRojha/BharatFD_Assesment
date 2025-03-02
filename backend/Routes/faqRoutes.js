@@ -10,8 +10,8 @@ const router = express.Router(); // Use express.Router() for routing
 
 router.get("/all", getAllFAQ);
 router.post("/create", authMiddleware, creatFAQ);
-router.post("/update", authMiddleware, updateFAQ);
-router.post("/delete", authMiddleware, deleteFAQ);
-router.post("/alldelete", authMiddleware, deleteAllFAQ);
+router.put("/update", authMiddleware, updateFAQ);
+router.delete("/delete", authMiddleware, deleteFAQ);
+router.delete("/alldelete", authMiddleware, deleteAllFAQ);
 
 export default router;
